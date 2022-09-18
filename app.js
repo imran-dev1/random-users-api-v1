@@ -7,9 +7,10 @@ const usersRoutes = require("./routes/users.route.js");
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-   const data = fs.readFileSync("index.html", "utf8");
+   const data = fs.readFileSync("public/index.html", "utf8");
    res.write(data);
    res.end();
 });

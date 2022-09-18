@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Fake Users Rest API</title>
+</head>
+
+<body class="bg-slate-100 pb-8 font-sans">
+    <header
+        class="max-w-[1000px] mx-auto h-28 sm:h-16 flex flex-col sm:flex-row items-center justify-center sm:justify-between px-5 gap-5">
+        <img src="/fake-users-logo.png" alt="Fake user logo" class=" w-36">
+        <ul class="flex justify-between gap-12">
+            <li>
+                <a href="#designer">Designer</a>
+            </li>
+            <li>
+                <a href="#endpoints">Endpoints</a>
+            </li>
+        </ul>
+    </header>
+    <div class="bg-indigo-600 h-[500px]">
+        <div class="max-w-[1000px] mx-auto px-5 flex flex-col h-full justify-center gap-4">
+            <h1 class="text-4xl sm:text-6xl font-semibold text-white">Fake Users Rest API</h1>
+            <p class="text-indigo-100 text-xl sm:text-2xl">Free fake API for testing and prototyping for frontend
+                designers.</p>
+            <p class="text-indigo-100 text-2xl sm:text-3xl mt-5">-Powered by Express JS</p>
+        </div>
+    </div>
+    <div class="max-w-[1000px] mx-auto px-5 py-20" id="endpoints">
+        <h3 class="text-2xl sm:text-3xl font-semibold mb-5">Endpoints-</h3>
+        <ul class="flex flex-col gap-2">
+            <li><a class="underline text-indigo-500 mr-5" href="/user/random" target="_blank">/user/random</a> (GET) - for a random
+                user.</li>
+            <li><a class="underline text-indigo-500 mr-5" href="/user/all" target="_blank">/user/all</a> (GET) - for all users.</li>
+            <li><a class="underline text-indigo-500 mr-5" href="/user/all/?limit=3" target="_blank">/user/all/?limit=3</a> (GET) - you can run query parameters to limit the data.</li>
+            <li><a class="underline text-indigo-500 mr-5" href="/user/2" target="_blank">/user/userId</a> (PATCH) - for updating any user. You will have to pass all the properties through the body.</li>
+            <li><a class="underline text-indigo-500 mr-5" href="#">/user/userId</a> (DELETE) - for deleting any user. You will have to pass the user id to delete that user.</li>
+        </ul>
+    </div>
+</body>
+
+</html>
