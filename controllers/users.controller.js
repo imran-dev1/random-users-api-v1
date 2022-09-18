@@ -88,14 +88,50 @@ module.exports.updateAUser = (req, res) => {
       selectedUser.address = updatedData.address;
       selectedUser.photoUrl = updatedData.photoUrl;
       console.log(users);
-      res.status(200).send({
-         status: "success",
-         message: "User has been updated successfully.",
+      fs.writeFile("users.json", JSON.stringify(users), (err) => {
+         if (err) {
+            res.send({
+               error: "Something went wrong while writing the json file",
+            });
+         } else {
+            res.status(200).send({
+               status: "success",
+               message: "User has been updated successfully.",
+            });
+         }
       });
    } else {
       res.status(400).send({
          status: "Error",
          message: "Please provide all the values of the properties!",
+      });
+   }
+};
+
+// Delete User Controller
+module.exports.deleteUser = (req, res) => {
+   const id = req.params.id;
+   const index = users.findIndex((obj) => obj.id === parseInt(id));
+   console.log(index);
+   if (index > -1) {
+      users.splice(index, 1);
+      fs.writeFile("users.json", JSON.stringify(users), (err) => {
+         if (err) {
+            res.send({
+               status: "Error",
+               message: "There was an error deleting the user!",
+            });
+         } else {
+            res.status(200).send({
+               status: "success",
+               message: "User deleted successfully.",
+            });
+         }
+      });
+   } else {
+      res.status(404).send({
+         status: "Error",
+         message: "User not found!",
       });
    }
 };

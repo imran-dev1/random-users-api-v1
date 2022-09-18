@@ -24,4 +24,9 @@ router.route("/save")
 router.route("/update/:id")
     .patch(usersController.updateAUser)
 
+
+// Delete A User API 
+router.route("/delete/:id")
+    .delete(usersController.deleteUser)
+
 module.exports = router;

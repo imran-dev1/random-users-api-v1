@@ -1,13 +1,5 @@
 [
    {
-      "id": 1,
-      "gender": "female",
-      "name": "Carmen Ferguson",
-      "contact": "carmen.ferguson@example.com",
-      "address": "5647 Mcgowen St",
-      "photoUrl": "https://randomuser.me/api/portraits/women/9.jpg"
-   },
-   {
       "id": 2,
       "gender": "male",
       "name": "Herman Brown",
@@ -38,13 +30,5 @@
       "contact": "sean.freeman@example.com",
       "address": "2922 E North St",
       "photoUrl": "https://randomuser.me/api/portraits/men/79.jpg"
-   },
-   {
-      "id": 6,
-      "gender": "female",
-      "name": "Gina Cruz",
-      "contact": "gina.cruz@example.com",
-      "address": "9074 Rolling Green Rd",
-      "photoUrl": "https://randomuser.me/api/portraits/women/89.jpg"
    }
 ]
