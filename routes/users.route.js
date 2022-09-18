@@ -19,4 +19,9 @@ router.route("/all")
 router.route("/save")
     .post(usersController.saveAUser)
 
+
+// Update A User API 
+router.route("/update/:id")
+    .patch(usersController.updateAUser)
+
 module.exports = router;

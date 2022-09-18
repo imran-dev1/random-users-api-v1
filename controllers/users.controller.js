@@ -15,7 +15,7 @@ module.exports.getAllUsers = (req, res) => {
    const query = req.query;
    if (users.length < query.limit) {
       res.send({
-         error: "Your requested limit is greater than the users limit",
+         error: "Limit is greater then the users!",
       });
    } else {
       const limitedUsers = users.slice(0, query.limit);
@@ -62,5 +62,40 @@ module.exports.saveAUser = (req, res) => {
                "You must provide the data of all the properties(gender, name, contact, address, photoUrl) through the body to save the user",
          });
       }
+   }
+};
+
+// Update A User Controller
+module.exports.updateAUser = (req, res) => {
+   const userId = req.params.id;
+   const updatedData = req.body;
+   const selectedUser = users.find((user) => user.id === parseInt(userId));
+   if (!selectedUser) {
+      res.status(404).send({
+         status: "Error",
+         message: "User not found!",
+      });
+   } else if (
+      updatedData.gender &&
+      updatedData.name &&
+      updatedData.contact &&
+      updatedData.address &&
+      updatedData.photoUrl
+   ) {
+      selectedUser.name = updatedData.name;
+      selectedUser.gender = updatedData.gender;
+      selectedUser.contact = updatedData.contact;
+      selectedUser.address = updatedData.address;
+      selectedUser.photoUrl = updatedData.photoUrl;
+      console.log(users);
+      res.status(200).send({
+         status: "success",
+         message: "User has been updated successfully.",
+      });
+   } else {
+      res.status(400).send({
+         status: "Error",
+         message: "Please provide all the values of the properties!",
+      });
    }
 };
