@@ -7,19 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Fake Users Rest API</title>
+    <script src="https://kit.fontawesome.com/6990961903.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+
 </head>
 
-<body class="bg-slate-100 pb-8 font-sans">
+<body class="bg-slate-100 font-sans">
     <header
         class="max-w-[1000px] mx-auto h-28 sm:h-16 flex flex-col sm:flex-row items-center justify-center sm:justify-between px-5 gap-5">
-        <img src="/fake-users-logo.png" alt="Fake user logo" class=" w-36">
+        <img src="/fake-users-logo.png" alt="Fake user logo" class="w-36">
         <ul class="flex justify-between gap-12">
-            <li>
-                <a href="#designer">Designer</a>
-            </li>
-            <li>
+            <li class="hover:text-indigo-700">
                 <a href="#endpoints">Endpoints</a>
             </li>
+            <li class="hover:text-indigo-700">
+                <a href="#designer">Designer</a>
+            </li>
+
         </ul>
     </header>
     <div class="bg-indigo-600 h-[500px]">
@@ -33,14 +39,48 @@
     <div class="max-w-[1000px] mx-auto px-5 py-20" id="endpoints">
         <h3 class="text-2xl sm:text-3xl font-semibold mb-5">Endpoints-</h3>
         <ul class="flex flex-col gap-2">
-            <li><a class="underline text-indigo-500 mr-5" href="/user/random" target="_blank">/user/random</a> (GET) - for a random
+            <li><a class="underline text-indigo-500 mr-5" href="/user/random" target="_blank">/user/random</a> (GET) -
+                for a random
                 user.</li>
-            <li><a class="underline text-indigo-500 mr-5" href="/user/all" target="_blank">/user/all</a> (GET) - for all users.</li>
-            <li><a class="underline text-indigo-500 mr-5" href="/user/all/?limit=3" target="_blank">/user/all/?limit=3</a> (GET) - you can run query parameters to limit the data.</li>
-            <li><a class="underline text-indigo-500 mr-5" href="/user/2" target="_blank">/user/userId</a> (PATCH) - for updating any user. You will have to pass all the properties through the body.</li>
-            <li><a class="underline text-indigo-500 mr-5" href="#">/user/userId</a> (DELETE) - for deleting any user. You will have to pass the user id to delete that user.</li>
+            <li><a class="underline text-indigo-500 mr-5" href="/user/all" target="_blank">/user/all</a> (GET) - for all
+                users.</li>
+            <li><a class="underline text-indigo-500 mr-5" href="/user/all/?limit=3"
+                    target="_blank">/user/all/?limit=3</a> (GET) - you can run query parameters to limit the data.</li>
+            <li><a class="underline text-indigo-500 mr-5" href="/user/2" target="_blank">/user/userId</a> (PATCH) - for
+                updating any user. You will have to pass all the properties through the body.</li>
+            <li><a class="underline text-indigo-500 mr-5" href="#">/user/userId</a> (DELETE) - for deleting any user.
+                You will have to pass the user id to delete that user.</li>
         </ul>
     </div>
+    <div class=" bg-white">
+        <div class="max-w-[1000px] mx-auto px-5 py-20" id="designer">
+            <h3 class="text-2xl sm:text-3xl font-semibold mb-5">Designer-</h3>
+            <div class="flex items-center gap-6 md:gap-12">
+                <div class="left">
+                    <img src="/imran.png" alt="designer-image" class="w-48 mx-auto">
+
+                </div>
+                <div class="right flex flex-col gap-5">
+                    <div class="flex flex-col">
+                        <span class="text-2xl" style="font-family: 'Kaushan Script', cursive;">Imran Ali</span>
+                        <span class="text-slate-500 uppercase text-md tracking-wider">Full Stack Developer</span>
+                    </div>
+                    <div class="social flex gap-3">
+                        <a href="https://github.com/imran-dev1" target="_blank"><i
+                                class="fa-brands fa-github text-2xl text-slate-300 hover:text-black"></i></a>
+                        <a href="https://www.linkedin.com/in/imran68/" target="_blank"><i
+                                class="fa-brands fa-linkedin text-2xl text-slate-300 hover:text-black"></i></a>
+                        <a href="https://github.com/imran-dev1" target="_blank"><i
+                                class="fa-solid fa-envelope text-2xl text-slate-300 hover:text-black"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer
+        class="max-w-[1000px] mx-auto px-5 gap-5 py-3 text-slate-400">
+        <p>Copyright &copy; 2022</p>
+    </footer>
 </body>
 
 </html>
