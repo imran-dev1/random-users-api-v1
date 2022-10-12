@@ -46,10 +46,65 @@
                 users.</li>
             <li><a class="underline text-indigo-500 mr-5" href="/user/all/?limit=3"
                     target="_blank">/user/all/?limit=3</a> (GET) - you can run query parameters to limit the data.</li>
-            <li><a class="underline text-indigo-500 mr-5" href="/user/2" target="_blank">/user/userId</a> (PATCH) - for
-                updating any user. You will have to pass all the properties through the body.</li>
-            <li><a class="underline text-indigo-500 mr-5" href="#">/user/userId</a> (DELETE) - for deleting any user.
-                You will have to pass the user id to delete that user.</li>
+            <li><a class="underline text-indigo-500 mr-5" href="#">/user/userId</a> (PATCH) - for
+                updating any user you will have to pass the properties through the body and the id with the url. See the example below.
+            <pre style="background-color:#faeeff;
+            padding: 20px;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            max-width: 100%;
+            overflow: auto;
+            box-sizing: content-box;
+            display: block;
+            border: 2px solid #f3e3fa;">
+For Example:
+
+const url = "https://fake-users-api.onrender.com/user/3"
+const body = {
+    gender : "male",
+    name : "John",
+    contact : "john@gmail.com",
+    address : "2922 E North st",
+    photoUrl : "https://randomuser.me/api/portraits/men/79.jpg"
+}
+
+** You have to send request with any of the following properties that you want to update: gender, name, contact, address, photoUrl .
+            </pre>
+            </li>
+            <li><a class="underline text-indigo-500 mr-5" href="#">/user/bulk-update</a> (PATCH) - for
+                updating multiple users you will have to pass their ids and the properties through the body. See the example below.
+                <pre style="background-color:#faeeff;
+                padding: 20px;
+                margin: 20px 0;
+                white-space: pre-wrap;
+                max-width: 100%;
+                overflow: auto;
+                box-sizing: content-box;
+                display: block;
+                border: 2px solid #f3e3fa;">
+For Example:
+    
+const url = "https://fake-users-api.onrender.com/user/bulk-update"
+const body = {
+    id : [2,5],
+    data : [{
+        gender : "male",
+        name : "John",
+        contact : "john@gmail.com",
+        address : "2922 E North st",
+        photoUrl : "https://randomuser.me/api/portraits/men/79.jpg"
+    },{
+        gender : "female",
+        name : "Stephine",
+        contact : "stephine@gmail.com",
+        address : "2922 E North st",
+        photoUrl : "https://randomuser.me/api/portraits/men/79.jpg"
+    }]
+}
+    
+** You have to send request with any of the following properties that you want to update: gender, name, contact, address, photoUrl .
+                </pre></li>
+            <li><a class="underline text-indigo-500 mr-5" href="#">/user/userId</a> (DELETE) - for deleting any user you will have to pass only the user id with the url.</li>
         </ul>
     </div>
     <div class=" bg-white">
@@ -70,15 +125,14 @@
                                 class="fa-brands fa-github text-2xl text-slate-300 hover:text-black"></i></a>
                         <a href="https://www.linkedin.com/in/imran68/" target="_blank"><i
                                 class="fa-brands fa-linkedin text-2xl text-slate-300 hover:text-black"></i></a>
-                        <a href="https://github.com/imran-dev1" target="_blank"><i
+                        <a href="mailto:imran.dev68@gmail.com"><i
                                 class="fa-solid fa-envelope text-2xl text-slate-300 hover:text-black"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer
-        class="max-w-[1000px] mx-auto px-5 gap-5 py-3 text-slate-400">
+    <footer class="max-w-[1000px] mx-auto px-5 gap-5 py-3 text-slate-400">
         <p>Copyright &copy; 2022</p>
     </footer>
 </body>
