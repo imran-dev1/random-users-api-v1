@@ -5,28 +5,22 @@ const app = express();
 
 app.use(express.json());
 
-// Get Random User API  
-router.route("/random")
-    .get(usersController.getRandomUser)
+// Get Random User API
+router.route("/random").get(usersController.getRandomUser);
 
+// Get All Users API
+router.route("/all").get(usersController.getAllUsers);
 
-// Get All Users API 
-router.route("/all")
-    .get(usersController.getAllUsers)
+// Save A User API
+router.route("/save").post(usersController.saveAUser);
 
+// Update A User API
+router.route("/update/:id").patch(usersController.updateAUser);
 
-// Save A User API 
-router.route("/save")
-    .post(usersController.saveAUser)
+// Update Bulk User API
+router.route("/bulk-update").patch(usersController.updateBulkUser);
 
-
-// Update A User API 
-router.route("/update/:id")
-    .patch(usersController.updateAUser)
-
-
-// Delete A User API 
-router.route("/delete/:id")
-    .delete(usersController.deleteUser)
+// Delete A User API
+router.route("/delete/:id").delete(usersController.deleteUser);
 
 module.exports = router;

@@ -69,25 +69,19 @@ module.exports.saveAUser = (req, res) => {
 module.exports.updateAUser = (req, res) => {
    const userId = req.params.id;
    const updatedData = req.body;
+   const updatedDataKeys = Object.keys(updatedData);
+   const usersDataKeys = Object.keys(users[0]);
+
    const selectedUser = users.find((user) => user.id === parseInt(userId));
    if (!selectedUser) {
       res.status(404).send({
          status: "Error",
          message: "User not found!",
       });
-   } else if (
-      updatedData.gender &&
-      updatedData.name &&
-      updatedData.contact &&
-      updatedData.address &&
-      updatedData.photoUrl
-   ) {
-      selectedUser.name = updatedData.name;
-      selectedUser.gender = updatedData.gender;
-      selectedUser.contact = updatedData.contact;
-      selectedUser.address = updatedData.address;
-      selectedUser.photoUrl = updatedData.photoUrl;
-      console.log(users);
+   } else if (updatedDataKeys.every((key) => usersDataKeys.includes(key))) {
+      updatedDataKeys.forEach((key) => {
+         selectedUser[key] = updatedData[key];
+      });
       fs.writeFile("users.json", JSON.stringify(users), (err) => {
          if (err) {
             res.send({
@@ -103,8 +97,49 @@ module.exports.updateAUser = (req, res) => {
    } else {
       res.status(400).send({
          status: "Error",
-         message: "Please provide all the values of the properties!",
+         message: "Please provide the valid property value!",
       });
+   }
+};
+
+// Update Bulk User Controller
+module.exports.updateBulkUser = (req, res) => {
+   const userIds = req.body.id;
+   const updatedData = req.body.data;
+   if (userIds.length === updatedData.length) {
+      const usersData = updatedData.map((user, index) => {
+         user.id = userIds[index];
+         return user;
+      });
+
+      let selectedUsers = [];
+
+      for (let i = 0; i < usersData.length; i++) {
+         const userData = usersData[i];
+
+         for (let j = 0; j < users.length; j++) {
+            const user = users[j];
+            if (user.id === userData.id) {
+               Object.keys(userData).forEach((key) => {
+                  user[key] = userData[key];
+               });
+            }
+         }
+      }
+      fs.writeFile("users.json", JSON.stringify(users), (err) => {
+         if (err) {
+            res.send({
+               error: "Something went wrong while writing the json file",
+            });
+         } else {
+            res.status(200).send({
+               status: "success",
+               message: "Users has been updated successfully.",
+            });
+         }
+      });
+   } else {
+      res.send({ message: "Id and data counts should be same" });
    }
 };
 
